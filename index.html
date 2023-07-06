@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link Shortener</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            font-size: 14px;
+        }
+        
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        
+        #shortened-link {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Link Shortener</h1>
+    <label for="original-link">Original Link:</label>
+    <input type="text" id="original-link" placeholder="Enter your link">
+    <button onclick="shortenLink()">Shorten</button>
+    <div id="shortened-link"></div>
+    
+    <script>
+        function shortenLink() {
+            var originalLink = document.getElementById('original-link').value;
+            var shortenedLink = 'https://your-domain.com/' + generateRandomString();
+            document.getElementById('shortened-link').innerHTML = 'Shortened Link: <a href="' + shortenedLink + '">' + shortenedLink + '</a>';
+        }
+        
+        function generateRandomString() {
+            var length = 6;
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var result = '';
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>
